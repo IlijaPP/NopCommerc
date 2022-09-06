@@ -1,0 +1,1355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0 (Python 3.7.5 on win32)" generated="20220906 11:21:15.131" rpa="false" schemaversion="3">
+<suite id="s1" name="1.RegisterTests" source="D:\RobotProjects\NopCommerc\TestCases\1.RegisterTests.robot">
+<test id="s1-t1" name="TC002-Register New User" line="8">
+<kw name="Open Application" library="SetupTearDown" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://demo.nopcommerce.com/</arg>
+<arg>chrome</arg>
+<arg>alias=MainBrowser</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220906 11:21:15.377" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com/'.</msg>
+<status status="PASS" starttime="20220906 11:21:15.377" endtime="20220906 11:21:19.170"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:15.376" endtime="20220906 11:21:19.170"/>
+</kw>
+<kw name="Open Register Page" library="Register">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Register}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:19.171" level="INFO">Clicking element 'xpath=//a[@class='ico-register']'.</msg>
+<status status="PASS" starttime="20220906 11:21:19.171" endtime="20220906 11:21:22.021"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:19.170" endtime="20220906 11:21:22.021"/>
+</kw>
+<kw name="Generate Random Email" library="Register">
+<kw name="Generate Random String" library="String">
+<var>${RandomString}</var>
+<arg>14</arg>
+<arg>[NUMBERS]abcdef</arg>
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<msg timestamp="20220906 11:21:22.022" level="INFO">${RandomString} = 870b24179de93d</msg>
+<status status="PASS" starttime="20220906 11:21:22.022" endtime="20220906 11:21:22.022"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${RandomEmail}</var>
+<arg>${RandomString}@gmail.com</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20220906 11:21:22.022" level="INFO">${RandomEmail} = 870b24179de93d@gmail.com</msg>
+<status status="PASS" starttime="20220906 11:21:22.022" endtime="20220906 11:21:22.022"/>
+</kw>
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${RandomEmail}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20220906 11:21:22.023" level="INFO">${RandomEmail} = 870b24179de93d@gmail.com</msg>
+<status status="PASS" starttime="20220906 11:21:22.023" endtime="20220906 11:21:22.023"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:22.021" endtime="20220906 11:21:22.023"/>
+</kw>
+<kw name="Input Personal Details" library="Register">
+<arg>${FirstName}</arg>
+<arg>${LastName}</arg>
+<arg>${RandomEmail}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${SexMale}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:22.024" level="INFO">Clicking element 'id=gender-male'.</msg>
+<status status="PASS" starttime="20220906 11:21:22.024" endtime="20220906 11:21:22.065"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InputRegisterName}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:22.066" level="INFO">Typing text 'Ilija' into text field 'id=FirstName'.</msg>
+<status status="PASS" starttime="20220906 11:21:22.065" endtime="20220906 11:21:22.134"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InputRegisterLastName}</arg>
+<arg>${arg2}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:22.134" level="INFO">Typing text 'Milanoski' into text field 'id=LastName'.</msg>
+<status status="PASS" starttime="20220906 11:21:22.134" endtime="20220906 11:21:22.202"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${DayOfBirth}</arg>
+<arg>30</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20220906 11:21:22.203" level="INFO">Selecting options from selection list 'name=DateOfBirthDay' by value 30.</msg>
+<status status="PASS" starttime="20220906 11:21:22.202" endtime="20220906 11:21:22.251"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${MonthOfBirth}</arg>
+<arg>July</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220906 11:21:22.252" level="INFO">Selecting options from selection list 'name=DateOfBirthMonth' by label July.</msg>
+<status status="PASS" starttime="20220906 11:21:22.251" endtime="20220906 11:21:22.301"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${YearOfBirth}</arg>
+<arg>1992</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220906 11:21:22.301" level="INFO">Selecting options from selection list 'name=DateOfBirthYear' by label 1992.</msg>
+<status status="PASS" starttime="20220906 11:21:22.301" endtime="20220906 11:21:22.349"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${RegisterEmail}</arg>
+<arg>${arg3}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:22.350" level="INFO">Typing text '870b24179de93d@gmail.com' into text field 'id=Email'.</msg>
+<status status="PASS" starttime="20220906 11:21:22.350" endtime="20220906 11:21:22.418"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:22.023" endtime="20220906 11:21:22.418"/>
+</kw>
+<kw name="Company Name" library="Register">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InputCompany}</arg>
+<arg>${CompanyName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:22.419" level="INFO">Typing text 'IWConnect' into text field 'id=Company'.</msg>
+<status status="PASS" starttime="20220906 11:21:22.419" endtime="20220906 11:21:22.485"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:22.418" endtime="20220906 11:21:22.485"/>
+</kw>
+<kw name="Checkbox Newsletter" library="Register">
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<arg>${NewsLetterCheckbox}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:22.486" level="INFO">Selecting checkbox 'id=Newsletter'.</msg>
+<status status="PASS" starttime="20220906 11:21:22.485" endtime="20220906 11:21:22.513"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:22.485" endtime="20220906 11:21:22.513"/>
+</kw>
+<kw name="Password Input" library="Register">
+<arg>${ValidPassword}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${InputPassword}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:22.514" level="INFO">Typing password into text field 'id=Password'.</msg>
+<msg timestamp="20220906 11:21:22.544" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220906 11:21:22.585" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220906 11:21:22.514" endtime="20220906 11:21:22.585"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:22.513" endtime="20220906 11:21:22.585"/>
+</kw>
+<kw name="Confirm Password Input" library="Register">
+<arg>${ValidPassword}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${InputConfirmPassword}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:22.586" level="INFO">Typing password into text field 'id=ConfirmPassword'.</msg>
+<msg timestamp="20220906 11:21:22.617" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220906 11:21:22.656" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220906 11:21:22.586" endtime="20220906 11:21:22.656"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:22.585" endtime="20220906 11:21:22.656"/>
+</kw>
+<kw name="Click Register Button" library="Register">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${RegisterButton}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:22.657" level="INFO">Clicking button 'name=register-button'.</msg>
+<status status="PASS" starttime="20220906 11:21:22.656" endtime="20220906 11:21:25.041"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:22.656" endtime="20220906 11:21:25.042"/>
+</kw>
+<kw name="Verify New User Is Registered" library="Register">
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${SuccessfulRegistration}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20220906 11:21:25.063" level="INFO">Element 'xpath=//div[@class='result']' is displayed.</msg>
+<status status="PASS" starttime="20220906 11:21:25.042" endtime="20220906 11:21:25.063"/>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${SuccessfulRegistration}</arg>
+<arg>${SuccessfullRegistrationText}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220906 11:21:25.064" level="INFO">Verifying element 'xpath=//div[@class='result']' contains exact text 'Your registration completed'.</msg>
+<status status="PASS" starttime="20220906 11:21:25.063" endtime="20220906 11:21:25.079"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:25.042" endtime="20220906 11:21:25.079"/>
+</kw>
+<kw name="Close Application" library="SetupTearDown" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220906 11:21:25.080" endtime="20220906 11:21:27.143"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:25.079" endtime="20220906 11:21:27.144"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:15.376" endtime="20220906 11:21:27.144"/>
+</test>
+<test id="s1-t2" name="TC003-Register User With Invalid Email" line="19">
+<kw name="Open Application" library="SetupTearDown" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://demo.nopcommerce.com/</arg>
+<arg>chrome</arg>
+<arg>alias=MainBrowser</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220906 11:21:27.145" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com/'.</msg>
+<status status="PASS" starttime="20220906 11:21:27.145" endtime="20220906 11:21:29.666"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:27.144" endtime="20220906 11:21:29.666"/>
+</kw>
+<kw name="Open Register Page" library="Register">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Register}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:29.666" level="INFO">Clicking element 'xpath=//a[@class='ico-register']'.</msg>
+<status status="PASS" starttime="20220906 11:21:29.666" endtime="20220906 11:21:30.083"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:29.666" endtime="20220906 11:21:30.084"/>
+</kw>
+<kw name="Input Personal Details" library="Register">
+<arg>${FirstName}</arg>
+<arg>${LastName}</arg>
+<arg>${InvalidRegisterEmail}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${SexMale}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:30.084" level="INFO">Clicking element 'id=gender-male'.</msg>
+<status status="PASS" starttime="20220906 11:21:30.084" endtime="20220906 11:21:30.121"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InputRegisterName}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:30.121" level="INFO">Typing text 'Ilija' into text field 'id=FirstName'.</msg>
+<status status="PASS" starttime="20220906 11:21:30.121" endtime="20220906 11:21:30.186"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InputRegisterLastName}</arg>
+<arg>${arg2}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:30.186" level="INFO">Typing text 'Milanoski' into text field 'id=LastName'.</msg>
+<status status="PASS" starttime="20220906 11:21:30.186" endtime="20220906 11:21:30.253"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${DayOfBirth}</arg>
+<arg>30</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20220906 11:21:30.254" level="INFO">Selecting options from selection list 'name=DateOfBirthDay' by value 30.</msg>
+<status status="PASS" starttime="20220906 11:21:30.253" endtime="20220906 11:21:30.301"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${MonthOfBirth}</arg>
+<arg>July</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220906 11:21:30.301" level="INFO">Selecting options from selection list 'name=DateOfBirthMonth' by label July.</msg>
+<status status="PASS" starttime="20220906 11:21:30.301" endtime="20220906 11:21:30.350"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${YearOfBirth}</arg>
+<arg>1992</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220906 11:21:30.350" level="INFO">Selecting options from selection list 'name=DateOfBirthYear' by label 1992.</msg>
+<status status="PASS" starttime="20220906 11:21:30.350" endtime="20220906 11:21:30.399"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${RegisterEmail}</arg>
+<arg>${arg3}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:30.399" level="INFO">Typing text 'ilijappmk$email.com' into text field 'id=Email'.</msg>
+<status status="PASS" starttime="20220906 11:21:30.399" endtime="20220906 11:21:30.467"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:30.084" endtime="20220906 11:21:30.468"/>
+</kw>
+<kw name="Company Name" library="Register">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InputCompany}</arg>
+<arg>${CompanyName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:30.468" level="INFO">Typing text 'IWConnect' into text field 'id=Company'.</msg>
+<status status="PASS" starttime="20220906 11:21:30.468" endtime="20220906 11:21:30.538"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:30.468" endtime="20220906 11:21:30.539"/>
+</kw>
+<kw name="Checkbox Newsletter" library="Register">
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<arg>${NewsLetterCheckbox}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:30.539" level="INFO">Selecting checkbox 'id=Newsletter'.</msg>
+<status status="PASS" starttime="20220906 11:21:30.539" endtime="20220906 11:21:30.567"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:30.539" endtime="20220906 11:21:30.567"/>
+</kw>
+<kw name="Password Input" library="Register">
+<arg>${ValidPassword}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${InputPassword}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:30.568" level="INFO">Typing password into text field 'id=Password'.</msg>
+<msg timestamp="20220906 11:21:30.598" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220906 11:21:30.636" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220906 11:21:30.568" endtime="20220906 11:21:30.637"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:30.567" endtime="20220906 11:21:30.637"/>
+</kw>
+<kw name="Confirm Password Input" library="Register">
+<arg>${ValidPassword}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${InputConfirmPassword}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:30.638" level="INFO">Typing password into text field 'id=ConfirmPassword'.</msg>
+<msg timestamp="20220906 11:21:30.668" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220906 11:21:30.705" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220906 11:21:30.637" endtime="20220906 11:21:30.705"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:30.637" endtime="20220906 11:21:30.705"/>
+</kw>
+<kw name="Click Register Button" library="Register">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${RegisterButton}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:30.705" level="INFO">Clicking button 'name=register-button'.</msg>
+<status status="PASS" starttime="20220906 11:21:30.705" endtime="20220906 11:21:30.756"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:30.705" endtime="20220906 11:21:30.756"/>
+</kw>
+<kw name="Verify Wrong Email Error" library="Register">
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${WrongEmailError}</arg>
+<arg>${InvalidRegisterEmailError}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20220906 11:21:30.777" level="INFO">Element 'xpath=//*[text()='Wrong email']' contains text 'Wrong email'.</msg>
+<status status="PASS" starttime="20220906 11:21:30.756" endtime="20220906 11:21:30.777"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:30.756" endtime="20220906 11:21:30.777"/>
+</kw>
+<kw name="Close Application" library="SetupTearDown" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220906 11:21:30.778" endtime="20220906 11:21:32.832"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:30.777" endtime="20220906 11:21:32.832"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:27.144" endtime="20220906 11:21:32.832"/>
+</test>
+<test id="s1-t3" name="TC004-Register With Used Email" line="29">
+<kw name="Open Application" library="SetupTearDown" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://demo.nopcommerce.com/</arg>
+<arg>chrome</arg>
+<arg>alias=MainBrowser</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220906 11:21:32.834" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com/'.</msg>
+<status status="PASS" starttime="20220906 11:21:32.833" endtime="20220906 11:21:34.403"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:32.833" endtime="20220906 11:21:34.403"/>
+</kw>
+<kw name="Open Register Page" library="Register">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Register}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:34.404" level="INFO">Clicking element 'xpath=//a[@class='ico-register']'.</msg>
+<status status="PASS" starttime="20220906 11:21:34.403" endtime="20220906 11:21:35.655"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:34.403" endtime="20220906 11:21:35.656"/>
+</kw>
+<kw name="Input Personal Details" library="Register">
+<arg>${FirstName}</arg>
+<arg>${LastName}</arg>
+<arg>${RandomEmail}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${SexMale}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:35.656" level="INFO">Clicking element 'id=gender-male'.</msg>
+<status status="PASS" starttime="20220906 11:21:35.656" endtime="20220906 11:21:35.693"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InputRegisterName}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:35.694" level="INFO">Typing text 'Ilija' into text field 'id=FirstName'.</msg>
+<status status="PASS" starttime="20220906 11:21:35.693" endtime="20220906 11:21:35.757"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InputRegisterLastName}</arg>
+<arg>${arg2}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:35.757" level="INFO">Typing text 'Milanoski' into text field 'id=LastName'.</msg>
+<status status="PASS" starttime="20220906 11:21:35.757" endtime="20220906 11:21:35.818"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${DayOfBirth}</arg>
+<arg>30</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20220906 11:21:35.819" level="INFO">Selecting options from selection list 'name=DateOfBirthDay' by value 30.</msg>
+<status status="PASS" starttime="20220906 11:21:35.818" endtime="20220906 11:21:35.864"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${MonthOfBirth}</arg>
+<arg>July</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220906 11:21:35.865" level="INFO">Selecting options from selection list 'name=DateOfBirthMonth' by label July.</msg>
+<status status="PASS" starttime="20220906 11:21:35.865" endtime="20220906 11:21:35.912"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${YearOfBirth}</arg>
+<arg>1992</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220906 11:21:35.912" level="INFO">Selecting options from selection list 'name=DateOfBirthYear' by label 1992.</msg>
+<status status="PASS" starttime="20220906 11:21:35.912" endtime="20220906 11:21:35.958"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${RegisterEmail}</arg>
+<arg>${arg3}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:35.958" level="INFO">Typing text '870b24179de93d@gmail.com' into text field 'id=Email'.</msg>
+<status status="PASS" starttime="20220906 11:21:35.958" endtime="20220906 11:21:36.024"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:35.656" endtime="20220906 11:21:36.024"/>
+</kw>
+<kw name="Company Name" library="Register">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InputCompany}</arg>
+<arg>${CompanyName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:36.025" level="INFO">Typing text 'IWConnect' into text field 'id=Company'.</msg>
+<status status="PASS" starttime="20220906 11:21:36.025" endtime="20220906 11:21:36.089"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:36.024" endtime="20220906 11:21:36.090"/>
+</kw>
+<kw name="Checkbox Newsletter" library="Register">
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<arg>${NewsLetterCheckbox}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:36.090" level="INFO">Selecting checkbox 'id=Newsletter'.</msg>
+<status status="PASS" starttime="20220906 11:21:36.090" endtime="20220906 11:21:36.116"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:36.090" endtime="20220906 11:21:36.117"/>
+</kw>
+<kw name="Password Input" library="Register">
+<arg>${ValidPassword}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${InputPassword}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:36.117" level="INFO">Typing password into text field 'id=Password'.</msg>
+<msg timestamp="20220906 11:21:36.147" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220906 11:21:36.186" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220906 11:21:36.117" endtime="20220906 11:21:36.186"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:36.117" endtime="20220906 11:21:36.186"/>
+</kw>
+<kw name="Confirm Password Input" library="Register">
+<arg>${ValidPassword}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${InputConfirmPassword}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:36.187" level="INFO">Typing password into text field 'id=ConfirmPassword'.</msg>
+<msg timestamp="20220906 11:21:36.218" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220906 11:21:36.255" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220906 11:21:36.186" endtime="20220906 11:21:36.255"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:36.186" endtime="20220906 11:21:36.255"/>
+</kw>
+<kw name="Click Register Button" library="Register">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${RegisterButton}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:36.256" level="INFO">Clicking button 'name=register-button'.</msg>
+<status status="PASS" starttime="20220906 11:21:36.256" endtime="20220906 11:21:36.654"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:36.256" endtime="20220906 11:21:36.654"/>
+</kw>
+<kw name="Verify Already Used Email" library="Register">
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${UsedEmailError}</arg>
+<arg>${UsedEmailErrorText}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220906 11:21:36.655" level="INFO">Verifying element 'xpath=//div[@class='message-error validation-summary-errors']' contains exact text 'The specified email already exists'.</msg>
+<status status="PASS" starttime="20220906 11:21:36.655" endtime="20220906 11:21:36.674"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:36.654" endtime="20220906 11:21:36.674"/>
+</kw>
+<kw name="Close Application" library="SetupTearDown" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220906 11:21:36.675" endtime="20220906 11:21:38.728"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:36.674" endtime="20220906 11:21:38.728"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:32.833" endtime="20220906 11:21:38.728"/>
+</test>
+<test id="s1-t4" name="TC005-Register User Without Confirm Password" line="39">
+<kw name="Open Application" library="SetupTearDown" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://demo.nopcommerce.com/</arg>
+<arg>chrome</arg>
+<arg>alias=MainBrowser</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220906 11:21:38.729" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com/'.</msg>
+<status status="PASS" starttime="20220906 11:21:38.729" endtime="20220906 11:21:40.320"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:38.729" endtime="20220906 11:21:40.320"/>
+</kw>
+<kw name="Open Register Page" library="Register">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Register}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:40.320" level="INFO">Clicking element 'xpath=//a[@class='ico-register']'.</msg>
+<status status="PASS" starttime="20220906 11:21:40.320" endtime="20220906 11:21:40.748"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:40.320" endtime="20220906 11:21:40.748"/>
+</kw>
+<kw name="Input Personal Details" library="Register">
+<arg>${FirstName}</arg>
+<arg>${LastName}</arg>
+<arg>${RandomEmail}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${SexMale}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:40.749" level="INFO">Clicking element 'id=gender-male'.</msg>
+<status status="PASS" starttime="20220906 11:21:40.749" endtime="20220906 11:21:40.786"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InputRegisterName}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:40.786" level="INFO">Typing text 'Ilija' into text field 'id=FirstName'.</msg>
+<status status="PASS" starttime="20220906 11:21:40.786" endtime="20220906 11:21:40.851"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InputRegisterLastName}</arg>
+<arg>${arg2}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:40.851" level="INFO">Typing text 'Milanoski' into text field 'id=LastName'.</msg>
+<status status="PASS" starttime="20220906 11:21:40.851" endtime="20220906 11:21:40.918"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${DayOfBirth}</arg>
+<arg>30</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20220906 11:21:40.918" level="INFO">Selecting options from selection list 'name=DateOfBirthDay' by value 30.</msg>
+<status status="PASS" starttime="20220906 11:21:40.918" endtime="20220906 11:21:40.966"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${MonthOfBirth}</arg>
+<arg>July</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220906 11:21:40.966" level="INFO">Selecting options from selection list 'name=DateOfBirthMonth' by label July.</msg>
+<status status="PASS" starttime="20220906 11:21:40.966" endtime="20220906 11:21:41.016"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${YearOfBirth}</arg>
+<arg>1992</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220906 11:21:41.017" level="INFO">Selecting options from selection list 'name=DateOfBirthYear' by label 1992.</msg>
+<status status="PASS" starttime="20220906 11:21:41.017" endtime="20220906 11:21:41.065"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${RegisterEmail}</arg>
+<arg>${arg3}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:41.065" level="INFO">Typing text '870b24179de93d@gmail.com' into text field 'id=Email'.</msg>
+<status status="PASS" starttime="20220906 11:21:41.065" endtime="20220906 11:21:41.136"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:40.748" endtime="20220906 11:21:41.137"/>
+</kw>
+<kw name="Company Name" library="Register">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InputCompany}</arg>
+<arg>${CompanyName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:41.137" level="INFO">Typing text 'IWConnect' into text field 'id=Company'.</msg>
+<status status="PASS" starttime="20220906 11:21:41.137" endtime="20220906 11:21:41.201"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:41.137" endtime="20220906 11:21:41.201"/>
+</kw>
+<kw name="Checkbox Newsletter" library="Register">
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<arg>${NewsLetterCheckbox}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:41.202" level="INFO">Selecting checkbox 'id=Newsletter'.</msg>
+<status status="PASS" starttime="20220906 11:21:41.202" endtime="20220906 11:21:41.228"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:41.202" endtime="20220906 11:21:41.228"/>
+</kw>
+<kw name="Password Input" library="Register">
+<arg>${ValidPassword}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${InputPassword}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:41.229" level="INFO">Typing password into text field 'id=Password'.</msg>
+<msg timestamp="20220906 11:21:41.260" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220906 11:21:41.298" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220906 11:21:41.229" endtime="20220906 11:21:41.298"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:41.228" endtime="20220906 11:21:41.298"/>
+</kw>
+<kw name="Click Register Button" library="Register">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${RegisterButton}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:41.299" level="INFO">Clicking button 'name=register-button'.</msg>
+<status status="PASS" starttime="20220906 11:21:41.299" endtime="20220906 11:21:41.352"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:41.298" endtime="20220906 11:21:41.352"/>
+</kw>
+<kw name="Verify Confirm Password" library="Register">
+<arg>${MissingConfirmPasswordText}</arg>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${MissingConfirmPassword}</arg>
+<arg>${arg1}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220906 11:21:41.353" level="INFO">Verifying element 'id=ConfirmPassword-error' contains exact text 'Password is required.'.</msg>
+<status status="PASS" starttime="20220906 11:21:41.353" endtime="20220906 11:21:41.371"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:41.353" endtime="20220906 11:21:41.371"/>
+</kw>
+<kw name="Close Application" library="SetupTearDown" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220906 11:21:41.372" endtime="20220906 11:21:43.426"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:41.371" endtime="20220906 11:21:43.426"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:38.729" endtime="20220906 11:21:43.426"/>
+</test>
+<test id="s1-t5" name="TC005-Register User Without Password" line="48">
+<kw name="Open Application" library="SetupTearDown" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://demo.nopcommerce.com/</arg>
+<arg>chrome</arg>
+<arg>alias=MainBrowser</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220906 11:21:43.428" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com/'.</msg>
+<status status="PASS" starttime="20220906 11:21:43.428" endtime="20220906 11:21:44.965"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:43.427" endtime="20220906 11:21:44.965"/>
+</kw>
+<kw name="Open Register Page" library="Register">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Register}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:44.966" level="INFO">Clicking element 'xpath=//a[@class='ico-register']'.</msg>
+<status status="PASS" starttime="20220906 11:21:44.966" endtime="20220906 11:21:45.387"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:44.965" endtime="20220906 11:21:45.387"/>
+</kw>
+<kw name="Input Personal Details" library="Register">
+<arg>${FirstName}</arg>
+<arg>${LastName}</arg>
+<arg>${RandomEmail}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${SexMale}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:45.388" level="INFO">Clicking element 'id=gender-male'.</msg>
+<status status="PASS" starttime="20220906 11:21:45.387" endtime="20220906 11:21:45.421"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InputRegisterName}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:45.421" level="INFO">Typing text 'Ilija' into text field 'id=FirstName'.</msg>
+<status status="PASS" starttime="20220906 11:21:45.421" endtime="20220906 11:21:45.480"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InputRegisterLastName}</arg>
+<arg>${arg2}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:45.480" level="INFO">Typing text 'Milanoski' into text field 'id=LastName'.</msg>
+<status status="PASS" starttime="20220906 11:21:45.480" endtime="20220906 11:21:45.540"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${DayOfBirth}</arg>
+<arg>30</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20220906 11:21:45.540" level="INFO">Selecting options from selection list 'name=DateOfBirthDay' by value 30.</msg>
+<status status="PASS" starttime="20220906 11:21:45.540" endtime="20220906 11:21:45.583"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${MonthOfBirth}</arg>
+<arg>July</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220906 11:21:45.583" level="INFO">Selecting options from selection list 'name=DateOfBirthMonth' by label July.</msg>
+<status status="PASS" starttime="20220906 11:21:45.583" endtime="20220906 11:21:45.626"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${YearOfBirth}</arg>
+<arg>1992</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220906 11:21:45.627" level="INFO">Selecting options from selection list 'name=DateOfBirthYear' by label 1992.</msg>
+<status status="PASS" starttime="20220906 11:21:45.626" endtime="20220906 11:21:45.670"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${RegisterEmail}</arg>
+<arg>${arg3}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:45.670" level="INFO">Typing text '870b24179de93d@gmail.com' into text field 'id=Email'.</msg>
+<status status="PASS" starttime="20220906 11:21:45.670" endtime="20220906 11:21:45.728"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:45.387" endtime="20220906 11:21:45.728"/>
+</kw>
+<kw name="Company Name" library="Register">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InputCompany}</arg>
+<arg>${CompanyName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:45.728" level="INFO">Typing text 'IWConnect' into text field 'id=Company'.</msg>
+<status status="PASS" starttime="20220906 11:21:45.728" endtime="20220906 11:21:45.784"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:45.728" endtime="20220906 11:21:45.784"/>
+</kw>
+<kw name="Checkbox Newsletter" library="Register">
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<arg>${NewsLetterCheckbox}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:45.785" level="INFO">Selecting checkbox 'id=Newsletter'.</msg>
+<status status="PASS" starttime="20220906 11:21:45.785" endtime="20220906 11:21:45.808"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:45.784" endtime="20220906 11:21:45.808"/>
+</kw>
+<kw name="Confirm Password Input" library="Register">
+<arg>${ValidPassword}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${InputConfirmPassword}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:45.809" level="INFO">Typing password into text field 'id=ConfirmPassword'.</msg>
+<msg timestamp="20220906 11:21:45.836" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220906 11:21:45.871" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220906 11:21:45.809" endtime="20220906 11:21:45.871"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:45.809" endtime="20220906 11:21:45.871"/>
+</kw>
+<kw name="Click Register Button" library="Register">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${RegisterButton}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:45.872" level="INFO">Clicking button 'name=register-button'.</msg>
+<status status="PASS" starttime="20220906 11:21:45.871" endtime="20220906 11:21:45.912"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:45.871" endtime="20220906 11:21:45.912"/>
+</kw>
+<kw name="Verify Confirm Password" library="Register">
+<arg>${PasswordAndConfirmPasswordNotMatchText}</arg>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${MissingConfirmPassword}</arg>
+<arg>${arg1}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220906 11:21:45.913" level="INFO">Verifying element 'id=ConfirmPassword-error' contains exact text 'The password and confirmation password do not match.'.</msg>
+<status status="PASS" starttime="20220906 11:21:45.912" endtime="20220906 11:21:45.931"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:45.912" endtime="20220906 11:21:45.931"/>
+</kw>
+<kw name="Close Application" library="SetupTearDown" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220906 11:21:45.931" endtime="20220906 11:21:47.988"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:45.931" endtime="20220906 11:21:47.988"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:43.427" endtime="20220906 11:21:47.988"/>
+</test>
+<test id="s1-t6" name="TC006-Register Without Password and Confirm Password" line="57">
+<kw name="Open Application" library="SetupTearDown" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://demo.nopcommerce.com/</arg>
+<arg>chrome</arg>
+<arg>alias=MainBrowser</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220906 11:21:47.989" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com/'.</msg>
+<status status="PASS" starttime="20220906 11:21:47.989" endtime="20220906 11:21:49.475"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:47.989" endtime="20220906 11:21:49.475"/>
+</kw>
+<kw name="Open Register Page" library="Register">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Register}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:49.476" level="INFO">Clicking element 'xpath=//a[@class='ico-register']'.</msg>
+<status status="PASS" starttime="20220906 11:21:49.476" endtime="20220906 11:21:49.888"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:49.475" endtime="20220906 11:21:49.888"/>
+</kw>
+<kw name="Input Personal Details" library="Register">
+<arg>${FirstName}</arg>
+<arg>${LastName}</arg>
+<arg>${RandomEmail}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${SexMale}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:49.889" level="INFO">Clicking element 'id=gender-male'.</msg>
+<status status="PASS" starttime="20220906 11:21:49.889" endtime="20220906 11:21:49.922"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InputRegisterName}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:49.922" level="INFO">Typing text 'Ilija' into text field 'id=FirstName'.</msg>
+<status status="PASS" starttime="20220906 11:21:49.922" endtime="20220906 11:21:49.978"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InputRegisterLastName}</arg>
+<arg>${arg2}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:49.978" level="INFO">Typing text 'Milanoski' into text field 'id=LastName'.</msg>
+<status status="PASS" starttime="20220906 11:21:49.978" endtime="20220906 11:21:50.034"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${DayOfBirth}</arg>
+<arg>30</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20220906 11:21:50.035" level="INFO">Selecting options from selection list 'name=DateOfBirthDay' by value 30.</msg>
+<status status="PASS" starttime="20220906 11:21:50.034" endtime="20220906 11:21:50.078"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${MonthOfBirth}</arg>
+<arg>July</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220906 11:21:50.078" level="INFO">Selecting options from selection list 'name=DateOfBirthMonth' by label July.</msg>
+<status status="PASS" starttime="20220906 11:21:50.078" endtime="20220906 11:21:50.120"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${YearOfBirth}</arg>
+<arg>1992</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220906 11:21:50.120" level="INFO">Selecting options from selection list 'name=DateOfBirthYear' by label 1992.</msg>
+<status status="PASS" starttime="20220906 11:21:50.120" endtime="20220906 11:21:50.162"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${RegisterEmail}</arg>
+<arg>${arg3}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:50.163" level="INFO">Typing text '870b24179de93d@gmail.com' into text field 'id=Email'.</msg>
+<status status="PASS" starttime="20220906 11:21:50.162" endtime="20220906 11:21:50.221"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:49.888" endtime="20220906 11:21:50.221"/>
+</kw>
+<kw name="Company Name" library="Register">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InputCompany}</arg>
+<arg>${CompanyName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:50.222" level="INFO">Typing text 'IWConnect' into text field 'id=Company'.</msg>
+<status status="PASS" starttime="20220906 11:21:50.222" endtime="20220906 11:21:50.280"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:50.222" endtime="20220906 11:21:50.281"/>
+</kw>
+<kw name="Checkbox Newsletter" library="Register">
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<arg>${NewsLetterCheckbox}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:50.281" level="INFO">Selecting checkbox 'id=Newsletter'.</msg>
+<status status="PASS" starttime="20220906 11:21:50.281" endtime="20220906 11:21:50.305"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:50.281" endtime="20220906 11:21:50.305"/>
+</kw>
+<kw name="Click Register Button" library="Register">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${RegisterButton}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:50.305" level="INFO">Clicking button 'name=register-button'.</msg>
+<status status="PASS" starttime="20220906 11:21:50.305" endtime="20220906 11:21:50.352"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:50.305" endtime="20220906 11:21:50.352"/>
+</kw>
+<kw name="Verify Password" library="Register">
+<arg>${MissingPasswordErrorText}</arg>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${MissingPassword}</arg>
+<arg>${arg1}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220906 11:21:50.353" level="INFO">Verifying element 'id=Password-error' contains exact text 'Password is required.'.</msg>
+<status status="PASS" starttime="20220906 11:21:50.353" endtime="20220906 11:21:50.370"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:50.353" endtime="20220906 11:21:50.370"/>
+</kw>
+<kw name="Verify Confirm Password" library="Register">
+<arg>${MissingConfirmPasswordText}</arg>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${MissingConfirmPassword}</arg>
+<arg>${arg1}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220906 11:21:50.371" level="INFO">Verifying element 'id=ConfirmPassword-error' contains exact text 'Password is required.'.</msg>
+<status status="PASS" starttime="20220906 11:21:50.371" endtime="20220906 11:21:50.386"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:50.370" endtime="20220906 11:21:50.386"/>
+</kw>
+<kw name="Close Application" library="SetupTearDown" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220906 11:21:50.387" endtime="20220906 11:21:52.443"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:50.387" endtime="20220906 11:21:52.443"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:47.989" endtime="20220906 11:21:52.443"/>
+</test>
+<test id="s1-t7" name="TC007-Register With Invalid Password" line="66">
+<kw name="Open Application" library="SetupTearDown" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://demo.nopcommerce.com/</arg>
+<arg>chrome</arg>
+<arg>alias=MainBrowser</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220906 11:21:52.444" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com/'.</msg>
+<status status="PASS" starttime="20220906 11:21:52.444" endtime="20220906 11:21:54.034"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:52.444" endtime="20220906 11:21:54.034"/>
+</kw>
+<kw name="Open Register Page" library="Register">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Register}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:54.035" level="INFO">Clicking element 'xpath=//a[@class='ico-register']'.</msg>
+<status status="PASS" starttime="20220906 11:21:54.034" endtime="20220906 11:21:54.453"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:54.034" endtime="20220906 11:21:54.453"/>
+</kw>
+<kw name="Input Personal Details" library="Register">
+<arg>${FirstName}</arg>
+<arg>${LastName}</arg>
+<arg>${RandomEmail}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${SexMale}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:54.454" level="INFO">Clicking element 'id=gender-male'.</msg>
+<status status="PASS" starttime="20220906 11:21:54.454" endtime="20220906 11:21:54.495"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InputRegisterName}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:54.496" level="INFO">Typing text 'Ilija' into text field 'id=FirstName'.</msg>
+<status status="PASS" starttime="20220906 11:21:54.495" endtime="20220906 11:21:54.601"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InputRegisterLastName}</arg>
+<arg>${arg2}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:54.602" level="INFO">Typing text 'Milanoski' into text field 'id=LastName'.</msg>
+<status status="PASS" starttime="20220906 11:21:54.601" endtime="20220906 11:21:54.677"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${DayOfBirth}</arg>
+<arg>30</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20220906 11:21:54.678" level="INFO">Selecting options from selection list 'name=DateOfBirthDay' by value 30.</msg>
+<status status="PASS" starttime="20220906 11:21:54.677" endtime="20220906 11:21:54.735"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${MonthOfBirth}</arg>
+<arg>July</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220906 11:21:54.735" level="INFO">Selecting options from selection list 'name=DateOfBirthMonth' by label July.</msg>
+<status status="PASS" starttime="20220906 11:21:54.735" endtime="20220906 11:21:54.792"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${YearOfBirth}</arg>
+<arg>1992</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220906 11:21:54.793" level="INFO">Selecting options from selection list 'name=DateOfBirthYear' by label 1992.</msg>
+<status status="PASS" starttime="20220906 11:21:54.793" endtime="20220906 11:21:54.850"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${RegisterEmail}</arg>
+<arg>${arg3}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:54.851" level="INFO">Typing text '870b24179de93d@gmail.com' into text field 'id=Email'.</msg>
+<status status="PASS" starttime="20220906 11:21:54.850" endtime="20220906 11:21:54.923"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:54.453" endtime="20220906 11:21:54.924"/>
+</kw>
+<kw name="Company Name" library="Register">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InputCompany}</arg>
+<arg>${CompanyName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:54.924" level="INFO">Typing text 'IWConnect' into text field 'id=Company'.</msg>
+<status status="PASS" starttime="20220906 11:21:54.924" endtime="20220906 11:21:54.988"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:54.924" endtime="20220906 11:21:54.989"/>
+</kw>
+<kw name="Checkbox Newsletter" library="Register">
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<arg>${NewsLetterCheckbox}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:54.989" level="INFO">Selecting checkbox 'id=Newsletter'.</msg>
+<status status="PASS" starttime="20220906 11:21:54.989" endtime="20220906 11:21:55.016"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:54.989" endtime="20220906 11:21:55.016"/>
+</kw>
+<kw name="Password Input" library="Register">
+<arg>${InvalidPassword}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${InputPassword}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:55.017" level="INFO">Typing password into text field 'id=Password'.</msg>
+<msg timestamp="20220906 11:21:55.046" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220906 11:21:55.104" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220906 11:21:55.016" endtime="20220906 11:21:55.104"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:55.016" endtime="20220906 11:21:55.104"/>
+</kw>
+<kw name="Confirm Password Input" library="Register">
+<arg>${ValidPassword}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${InputConfirmPassword}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:55.106" level="INFO">Typing password into text field 'id=ConfirmPassword'.</msg>
+<msg timestamp="20220906 11:21:55.147" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220906 11:21:55.202" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220906 11:21:55.105" endtime="20220906 11:21:55.202"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:55.104" endtime="20220906 11:21:55.203"/>
+</kw>
+<kw name="Click Register Button" library="Register">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${RegisterButton}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:55.204" level="INFO">Clicking button 'name=register-button'.</msg>
+<status status="PASS" starttime="20220906 11:21:55.203" endtime="20220906 11:21:55.267"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:55.203" endtime="20220906 11:21:55.267"/>
+</kw>
+<kw name="Verify Password" library="Register">
+<arg>${InvalidPasswordErrorText}</arg>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${MissingPassword}</arg>
+<arg>${arg1}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220906 11:21:55.269" level="INFO">Verifying element 'id=Password-error' contains exact text 'Password must meet the following rules:
+must have at least 6 characters'.</msg>
+<status status="PASS" starttime="20220906 11:21:55.268" endtime="20220906 11:21:55.298"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:55.267" endtime="20220906 11:21:55.298"/>
+</kw>
+<kw name="Verify Confirm Password" library="Register">
+<arg>${PasswordAndConfirmPasswordNotMatchText}</arg>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${MissingConfirmPassword}</arg>
+<arg>${arg1}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220906 11:21:55.299" level="INFO">Verifying element 'id=ConfirmPassword-error' contains exact text 'The password and confirmation password do not match.'.</msg>
+<status status="PASS" starttime="20220906 11:21:55.299" endtime="20220906 11:21:55.331"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:55.298" endtime="20220906 11:21:55.331"/>
+</kw>
+<kw name="Close Application" library="SetupTearDown" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220906 11:21:55.332" endtime="20220906 11:21:57.405"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:55.331" endtime="20220906 11:21:57.405"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:52.444" endtime="20220906 11:21:57.405"/>
+</test>
+<test id="s1-t8" name="TC008-Register User With Empty First Name" line="77">
+<kw name="Open Application" library="SetupTearDown" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://demo.nopcommerce.com/</arg>
+<arg>chrome</arg>
+<arg>alias=MainBrowser</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220906 11:21:57.406" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com/'.</msg>
+<status status="PASS" starttime="20220906 11:21:57.406" endtime="20220906 11:21:58.991"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:57.406" endtime="20220906 11:21:58.991"/>
+</kw>
+<kw name="Open Register Page" library="Register">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Register}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:58.993" level="INFO">Clicking element 'xpath=//a[@class='ico-register']'.</msg>
+<status status="PASS" starttime="20220906 11:21:58.992" endtime="20220906 11:21:59.422"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:58.992" endtime="20220906 11:21:59.422"/>
+</kw>
+<kw name="Input Personal Details" library="Register">
+<arg>${EMPTY}</arg>
+<arg>${LastName}</arg>
+<arg>${RandomEmail}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${SexMale}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:59.424" level="INFO">Clicking element 'id=gender-male'.</msg>
+<status status="PASS" starttime="20220906 11:21:59.423" endtime="20220906 11:21:59.465"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InputRegisterName}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:59.465" level="INFO">Typing text '' into text field 'id=FirstName'.</msg>
+<status status="PASS" starttime="20220906 11:21:59.465" endtime="20220906 11:21:59.521"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InputRegisterLastName}</arg>
+<arg>${arg2}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:59.522" level="INFO">Typing text 'Milanoski' into text field 'id=LastName'.</msg>
+<status status="PASS" starttime="20220906 11:21:59.522" endtime="20220906 11:21:59.587"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${DayOfBirth}</arg>
+<arg>30</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20220906 11:21:59.588" level="INFO">Selecting options from selection list 'name=DateOfBirthDay' by value 30.</msg>
+<status status="PASS" starttime="20220906 11:21:59.588" endtime="20220906 11:21:59.638"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${MonthOfBirth}</arg>
+<arg>July</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220906 11:21:59.638" level="INFO">Selecting options from selection list 'name=DateOfBirthMonth' by label July.</msg>
+<status status="PASS" starttime="20220906 11:21:59.638" endtime="20220906 11:21:59.686"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${YearOfBirth}</arg>
+<arg>1992</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220906 11:21:59.686" level="INFO">Selecting options from selection list 'name=DateOfBirthYear' by label 1992.</msg>
+<status status="PASS" starttime="20220906 11:21:59.686" endtime="20220906 11:21:59.736"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${RegisterEmail}</arg>
+<arg>${arg3}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:59.736" level="INFO">Typing text '870b24179de93d@gmail.com' into text field 'id=Email'.</msg>
+<status status="PASS" starttime="20220906 11:21:59.736" endtime="20220906 11:21:59.807"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:59.422" endtime="20220906 11:21:59.808"/>
+</kw>
+<kw name="Company Name" library="Register">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InputCompany}</arg>
+<arg>${CompanyName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:59.809" level="INFO">Typing text 'IWConnect' into text field 'id=Company'.</msg>
+<status status="PASS" starttime="20220906 11:21:59.808" endtime="20220906 11:21:59.875"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:59.808" endtime="20220906 11:21:59.876"/>
+</kw>
+<kw name="Checkbox Newsletter" library="Register">
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<arg>${NewsLetterCheckbox}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:59.878" level="INFO">Selecting checkbox 'id=Newsletter'.</msg>
+<status status="PASS" starttime="20220906 11:21:59.877" endtime="20220906 11:21:59.906"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:59.876" endtime="20220906 11:21:59.906"/>
+</kw>
+<kw name="Password Input" library="Register">
+<arg>${ValidPassword}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${InputPassword}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:59.907" level="INFO">Typing password into text field 'id=Password'.</msg>
+<msg timestamp="20220906 11:21:59.937" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220906 11:21:59.976" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220906 11:21:59.906" endtime="20220906 11:21:59.976"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:59.906" endtime="20220906 11:21:59.976"/>
+</kw>
+<kw name="Confirm Password Input" library="Register">
+<arg>${ValidPassword}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${InputConfirmPassword}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:21:59.978" level="INFO">Typing password into text field 'id=ConfirmPassword'.</msg>
+<msg timestamp="20220906 11:22:00.010" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220906 11:22:00.050" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220906 11:21:59.978" endtime="20220906 11:22:00.050"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:59.977" endtime="20220906 11:22:00.050"/>
+</kw>
+<kw name="Click Register Button" library="Register">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${RegisterButton}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220906 11:22:00.051" level="INFO">Clicking button 'name=register-button'.</msg>
+<status status="PASS" starttime="20220906 11:22:00.051" endtime="20220906 11:22:00.111"/>
+</kw>
+<status status="PASS" starttime="20220906 11:22:00.050" endtime="20220906 11:22:00.111"/>
+</kw>
+<kw name="Verify First Name" library="Register">
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${FirstNameError}</arg>
+<arg>${FirstNameErrorText}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220906 11:22:00.112" level="INFO">Verifying element 'id=FirstName-error' contains exact text 'First name is required.'.</msg>
+<status status="PASS" starttime="20220906 11:22:00.112" endtime="20220906 11:22:00.132"/>
+</kw>
+<status status="PASS" starttime="20220906 11:22:00.111" endtime="20220906 11:22:00.133"/>
+</kw>
+<kw name="Close Application" library="SetupTearDown" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220906 11:22:00.133" endtime="20220906 11:22:02.188"/>
+</kw>
+<status status="PASS" starttime="20220906 11:22:00.133" endtime="20220906 11:22:02.188"/>
+</kw>
+<status status="PASS" starttime="20220906 11:21:57.406" endtime="20220906 11:22:02.188"/>
+</test>
+<test id="s1-t9" name="TC009-Register User With Empty Last Name" line="87">
+<kw name="Open Application" library="SetupTearDown" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>https://demo.nopcommerce.com/</arg>
+<arg>chrome</arg>
+<arg>alias=MainBrowser</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220906 11:22:02.189" level="INFO">Opening browser 'chrome' to base url 'https://demo.nopcommerce.com/'.</msg>
+<status status="PASS" starttime="20220906 11:22:02.189" endtime="20220906 11:22:03.702"/>
+</kw>
+<status status="PASS" starttime="20220906 11:22:02.189" endtime="20220906 11:22:03.702"/>
+</kw>
+<kw name="Open Register Page" library="Register">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${Register}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220906 11:22:03.702" level="INFO">Clicking element 'xpath=//a[@class='ico-register']'.</msg>
+<status status="PASS" starttime="20220906 11:22:03.702" endtime="20220906 11:22:04.110"/>
+</kw>
+<status status="PASS" starttime="20220906 11:22:03.702" endtime="20220906 11:22:04.111"/>
+</kw>
+<kw name="Input Personal Details" library="Register">
+<arg>${FirstName}</arg>
+<arg>${EMPTY}</arg>
+<arg>${RandomEmail}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${SexMale}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220906 11:22:04.112" level="INFO">Clicking element 'id=gender-male'.</msg>
+<status status="PASS" starttime="20220906 11:22:04.112" endtime="20220906 11:22:04.151"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InputRegisterName}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:22:04.151" level="INFO">Typing text 'Ilija' into text field 'id=FirstName'.</msg>
+<status status="PASS" starttime="20220906 11:22:04.151" endtime="20220906 11:22:04.219"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InputRegisterLastName}</arg>
+<arg>${arg2}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:22:04.219" level="INFO">Typing text '' into text field 'id=LastName'.</msg>
+<status status="PASS" starttime="20220906 11:22:04.219" endtime="20220906 11:22:04.281"/>
+</kw>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${DayOfBirth}</arg>
+<arg>30</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20220906 11:22:04.281" level="INFO">Selecting options from selection list 'name=DateOfBirthDay' by value 30.</msg>
+<status status="PASS" starttime="20220906 11:22:04.281" endtime="20220906 11:22:04.327"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${MonthOfBirth}</arg>
+<arg>July</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220906 11:22:04.327" level="INFO">Selecting options from selection list 'name=DateOfBirthMonth' by label July.</msg>
+<status status="PASS" starttime="20220906 11:22:04.327" endtime="20220906 11:22:04.375"/>
+</kw>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>${YearOfBirth}</arg>
+<arg>1992</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220906 11:22:04.376" level="INFO">Selecting options from selection list 'name=DateOfBirthYear' by label 1992.</msg>
+<status status="PASS" starttime="20220906 11:22:04.375" endtime="20220906 11:22:04.424"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${RegisterEmail}</arg>
+<arg>${arg3}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:22:04.425" level="INFO">Typing text '870b24179de93d@gmail.com' into text field 'id=Email'.</msg>
+<status status="PASS" starttime="20220906 11:22:04.424" endtime="20220906 11:22:04.501"/>
+</kw>
+<status status="PASS" starttime="20220906 11:22:04.111" endtime="20220906 11:22:04.501"/>
+</kw>
+<kw name="Company Name" library="Register">
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${InputCompany}</arg>
+<arg>${CompanyName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:22:04.502" level="INFO">Typing text 'IWConnect' into text field 'id=Company'.</msg>
+<status status="PASS" starttime="20220906 11:22:04.501" endtime="20220906 11:22:04.570"/>
+</kw>
+<status status="PASS" starttime="20220906 11:22:04.501" endtime="20220906 11:22:04.570"/>
+</kw>
+<kw name="Checkbox Newsletter" library="Register">
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<arg>${NewsLetterCheckbox}</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<msg timestamp="20220906 11:22:04.571" level="INFO">Selecting checkbox 'id=Newsletter'.</msg>
+<status status="PASS" starttime="20220906 11:22:04.570" endtime="20220906 11:22:04.597"/>
+</kw>
+<status status="PASS" starttime="20220906 11:22:04.570" endtime="20220906 11:22:04.598"/>
+</kw>
+<kw name="Password Input" library="Register">
+<arg>${ValidPassword}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${InputPassword}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:22:04.598" level="INFO">Typing password into text field 'id=Password'.</msg>
+<msg timestamp="20220906 11:22:04.629" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220906 11:22:04.671" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220906 11:22:04.598" endtime="20220906 11:22:04.671"/>
+</kw>
+<status status="PASS" starttime="20220906 11:22:04.598" endtime="20220906 11:22:04.671"/>
+</kw>
+<kw name="Confirm Password Input" library="Register">
+<arg>${ValidPassword}</arg>
+<kw name="Input Password" library="SeleniumLibrary">
+<arg>${InputConfirmPassword}</arg>
+<arg>${arg1}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220906 11:22:04.672" level="INFO">Typing password into text field 'id=ConfirmPassword'.</msg>
+<msg timestamp="20220906 11:22:04.702" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220906 11:22:04.738" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220906 11:22:04.671" endtime="20220906 11:22:04.739"/>
+</kw>
+<status status="PASS" starttime="20220906 11:22:04.671" endtime="20220906 11:22:04.739"/>
+</kw>
+<kw name="Click Register Button" library="Register">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${RegisterButton}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220906 11:22:04.739" level="INFO">Clicking button 'name=register-button'.</msg>
+<status status="PASS" starttime="20220906 11:22:04.739" endtime="20220906 11:22:04.792"/>
+</kw>
+<status status="PASS" starttime="20220906 11:22:04.739" endtime="20220906 11:22:04.792"/>
+</kw>
+<kw name="Verify Last Name" library="Register">
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<arg>${LastNameError}</arg>
+<arg>${LastNameErrorText}</arg>
+<doc>Verifies that element ``locator`` contains exact the text ``expected``.</doc>
+<msg timestamp="20220906 11:22:04.793" level="INFO">Verifying element 'id=LastName-error' contains exact text 'Last name is required.'.</msg>
+<status status="PASS" starttime="20220906 11:22:04.793" endtime="20220906 11:22:04.812"/>
+</kw>
+<status status="PASS" starttime="20220906 11:22:04.792" endtime="20220906 11:22:04.812"/>
+</kw>
+<kw name="Close Application" library="SetupTearDown" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220906 11:22:04.813" endtime="20220906 11:22:06.868"/>
+</kw>
+<status status="PASS" starttime="20220906 11:22:04.813" endtime="20220906 11:22:06.868"/>
+</kw>
+<status status="PASS" starttime="20220906 11:22:02.189" endtime="20220906 11:22:06.868"/>
+</test>
+<status status="PASS" starttime="20220906 11:21:15.132" endtime="20220906 11:22:06.869"/>
+</suite>
+<statistics>
+<total>
+<stat pass="9" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="9" fail="0" skip="0" id="s1" name="1.RegisterTests">1.RegisterTests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
