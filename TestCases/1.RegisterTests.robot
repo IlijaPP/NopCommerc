@@ -6,7 +6,7 @@ Resource          ../KeyWords/Register.robot
 
 *** Test Cases ***
 TC002-Register New User
-    Open Register Page
+    Opsen Register Page
     Generate Random Email
     Input Personal Details    ${FirstName}    ${LastName}    ${RandomEmail}
     Company Name
